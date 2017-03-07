@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 import {Store} from '@ngrx/store';
 
-import * as fromRoot from '../../../reducers/rootReducer';
 import * as fromTestPerson from '../../../reducers/test-person';
 import * as types from '../../../constants/actions/test';
 
@@ -12,13 +11,22 @@ import * as types from '../../../constants/actions/test';
 })
 export class PersonComponent {
 	people$: Observable<any>;
-	constructor(private store: Store<fromRoot.State>) {
+	filter$: Observable<any>;
+	attending$: Observable<any>;
+	guests$: Observable<any>;
+	constructor(private store: Store<any>) {
 		this.people$ = store.select('testPerson');
+		this.filter$ = store.select('testFilter');
+		this.attending$ = this.people$
+				.map(people => people.filter(person => person.attending));
+      	this.guests$ = this.people$
+		        .map(people => people.map(person => person.guests)
+                .reduce((acc, curr) => acc + curr, 0));
 	}
 	addPerson(name) {
 		this.store.dispatch(
 			{
-				type: types.TEST_PEASON_ADD_PERSON,
+				type: types.TEST_PERSON_ADD_PERSON,
 				payload: {
 					id: Math.floor(Math.random() * (5000)),
 					name
@@ -29,7 +37,7 @@ export class PersonComponent {
 	addGuest(id) {
 		this.store.dispatch(
 			{
-				type: types.TEST_PEASON_ADD_GUEST,
+				type: types.TEST_PERSON_ADD_GUEST,
 				payload: id
 			}
 		);
@@ -37,7 +45,7 @@ export class PersonComponent {
 	removeGuest(id) {
 		this.store.dispatch(
 			{
-				type: types.TEST_PEASON_REMOVE_GUEST,
+				type: types.TEST_PERSON_REMOVE_GUEST,
 				payload: id
 			}
 		);
@@ -45,7 +53,7 @@ export class PersonComponent {
 	removePerson(id) {
 		this.store.dispatch(
 			{
-				type: types.TEST_PEASON_REMOVE_PERSON,
+				type: types.TEST_PERSON_REMOVE_PERSON,
 				payload: id
 			}
 		);
@@ -53,9 +61,12 @@ export class PersonComponent {
 	toggleAttending(id) {
 		this.store.dispatch(
 			{
-				type: types.TEST_PEASON_TOGGLE_ATTENDING,
+				type: types.TEST_PERSON_TOGGLE_ATTENDING,
 				payload: id
 			}
 		);
 	}
+	updateFilter(filter) {
+		this.store.dispatch({type: filter});
+    }
 }

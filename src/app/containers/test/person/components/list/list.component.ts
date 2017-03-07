@@ -9,6 +9,7 @@ import { Component , Input , Output , EventEmitter , ChangeDetectionStrategy } f
 })
 export class PersonListComponent {
 	@Input() people;
+	@Input() filter;
     @Output() addGuest = new EventEmitter();
     @Output() removeGuest = new EventEmitter();
     @Output() removePerson = new EventEmitter();

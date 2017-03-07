@@ -16,6 +16,8 @@ import { SecondComponent } from './second/second.component';
 import { PersonComponent } from './person/person.component';
 import { PersonInputComponent } from './person/components/input/input.component';
 import { PersonListComponent } from './person/components/list/list.component';
+import { PersonFilterComponent } from './person/components/filter/filter.component';
+import { PersonStatsComponent } from './person/components/stats/stats.component';
 
 @NgModule({
 	imports: [
@@ -30,7 +32,9 @@ import { PersonListComponent } from './person/components/list/list.component';
 		SecondComponent,
 		PersonComponent,
 		PersonInputComponent,
-		PersonListComponent
+		PersonListComponent,
+		PersonFilterComponent,
+		PersonStatsComponent
 	],
 	// exports: [PagesTestComponent]
 	// providers: [],
