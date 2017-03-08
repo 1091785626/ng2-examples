@@ -3,6 +3,7 @@ import {Observable} from 'rxjs/Rx';
 import {Store} from '@ngrx/store';
 
 import * as types from '../../../constants/actions/test';
+import { partyData , attendees , percentAttending } from '../../../selectors/test/person';
 
 @Component({
 	selector: 'app-view-test-person',
@@ -10,19 +11,16 @@ import * as types from '../../../constants/actions/test';
 })
 export class PersonComponent {
 	data$: Observable<any>;
+	percentAttendance$: Observable<any>;
 	constructor(private store: Store<any>) {
 		this.data$ = Observable.combineLatest(
 			store.select('testPerson'),
 			store.select('testFilter'),
-			(people: Array<any>, filter: any) => {
-				return {
-					total: people.length,
-					people: people.filter(filter),
-					attending: people.filter(person => person.attending).length,
-					guests: people.reduce((acc, curr) => acc + curr.guests, 0)
-				};
-			}
-		);
+		)
+		// extracting party model to selector
+		.let(partyData());
+		// store.let(attendees());
+		this.percentAttendance$ = store.let(percentAttending());
 	}
 	addPerson(name) {
 		this.store.dispatch(
