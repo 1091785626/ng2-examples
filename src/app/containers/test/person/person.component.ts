@@ -9,18 +9,20 @@ import * as types from '../../../constants/actions/test';
 	templateUrl: './person.html',
 })
 export class PersonComponent {
-	people$: Observable<any>;
-	filter$: Observable<any>;
-	attending$: Observable<any>;
-	guests$: Observable<any>;
+	data$: Observable<any>;
 	constructor(private store: Store<any>) {
-		this.people$ = store.select('testPerson');
-		this.filter$ = store.select('testFilter');
-		this.attending$ = this.people$
-				.map(people => people.filter(person => person.attending));
-      	this.guests$ = this.people$
-		        .map(people => people.map(person => person.guests)
-                .reduce((acc, curr) => acc + curr, 0));
+		this.data$ = Observable.combineLatest(
+			store.select('testPerson'),
+			store.select('testFilter'),
+			(people: Array<any>, filter: any) => {
+				return {
+					total: people.length,
+					people: people.filter(filter),
+					attending: people.filter(person => person.attending).length,
+					guests: people.reduce((acc, curr) => acc + curr.guests, 0)
+				};
+			}
+		);
 	}
 	addPerson(name) {
 		this.store.dispatch(
@@ -67,5 +69,5 @@ export class PersonComponent {
 	}
 	updateFilter(filter) {
 		this.store.dispatch({type: filter});
-    }
+	}
 }

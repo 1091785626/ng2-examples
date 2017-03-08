@@ -4,6 +4,7 @@ import { ModuleWithProviders } from '@angular/core';
 import { PagesTestComponent } from './test.component';
 import { MainComponent } from './main/main.component';
 import { SecondComponent } from './second/second.component';
+import { LearnComponent } from './learn/learn.component';
 import { PersonComponent } from './person/person.component';
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
 			{
 				path: 'second',
 				component: SecondComponent
+			},
+			{
+				path: 'learn',
+				component: LearnComponent
 			},
 			{
 				path: 'person',

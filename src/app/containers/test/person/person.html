@@ -1,8 +1,8 @@
 <h3>@ngrx/store Party Planner</h3>
 <app-person-stats
-	[invited]="(people$ | async)?.length"
-	[attending]="(attending$ | async)?.length"
-	[guests]="(guests$ | async)"
+	[invited]="(data$ | async)?.total"
+	[attending]="(data$ | async)?.attending"
+	[guests]="(data$ | async)?.guests"
 >
 </app-person-stats>
 <app-person-filter
@@ -14,8 +14,7 @@
 >
 </app-person-input>
 <app-person-list
-	[people]="people$ | async"
-	[filter]="filter$ | async"
+	[people]="(data$ | async)?.people"
 	(addGuest)="addGuest($event)"
 	(removeGuest)="removeGuest($event)"
 	(removePerson)="removePerson($event)"

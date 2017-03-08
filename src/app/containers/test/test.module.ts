@@ -12,6 +12,8 @@ import { MainComponent } from './main/main.component';
 import { MainTextComponent } from './main/components/text/text.component';
 // seconed
 import { SecondComponent } from './second/second.component';
+// learn
+import { LearnComponent } from './learn/learn.component';
 // person
 import { PersonComponent } from './person/person.component';
 import { PersonInputComponent } from './person/components/input/input.component';
@@ -30,6 +32,7 @@ import { PersonStatsComponent } from './person/components/stats/stats.component'
 		MainComponent,
 		MainTextComponent,
 		SecondComponent,
+		LearnComponent,
 		PersonComponent,
 		PersonInputComponent,
 		PersonListComponent,
