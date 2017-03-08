@@ -68,4 +68,7 @@ export class PersonComponent {
 	updateFilter(filter) {
 		this.store.dispatch({type: filter});
 	}
+	resetParty() {
+		this.store.dispatch({type: types.TEST_PERSON_RESET_STATE});
+	}
 }

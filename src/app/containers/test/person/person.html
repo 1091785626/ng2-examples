@@ -1,4 +1,7 @@
 <h3>@ngrx/store Party Planner</h3>
+<button (click)="resetParty()">
+	Reset Party
+</button>
 <h4> Percent Attendance: {{percentAttendance$ | async}}%</h4>
 <app-person-stats
 	[invited]="(data$ | async)?.total"
