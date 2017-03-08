@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 import {Store} from '@ngrx/store';
 
-import * as fromTestPerson from '../../../reducers/test-person';
 import * as types from '../../../constants/actions/test';
 
 @Component({

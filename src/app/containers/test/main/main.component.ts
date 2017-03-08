@@ -2,8 +2,6 @@ import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 import {Store} from '@ngrx/store';
 
-import * as fromTest from '../../../reducers/test';
-
 import 'style-loader!./main.scss';
 
 @Component({
@@ -11,7 +9,7 @@ import 'style-loader!./main.scss';
 	templateUrl: './main.html',
 })
 export class MainComponent {
-	test$: Observable<fromTest.State>;
+	test$: Observable<any>;
 	constructor(private store: Store<any>) {
 		this.test$ = store.select('testMain');
 		setTimeout(() => {
