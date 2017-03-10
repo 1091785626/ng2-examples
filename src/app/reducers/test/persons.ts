@@ -12,7 +12,7 @@ export const initialState: State[] = [];
 
 const details = (state: State, action: Action): State => {
 	switch (action.type) {
-		case types.TEST_PERSON_ADD_GUEST:
+		case types.TEST_PERSONS_ADD_GUEST:
 			if (state.id === action.payload) {
 				state = {
 					...state,
@@ -20,7 +20,7 @@ const details = (state: State, action: Action): State => {
 				};
 			}
 			return state;
-		case types.TEST_PERSON_REMOVE_GUEST:
+		case types.TEST_PERSONS_REMOVE_GUEST:
 			if (state.id === action.payload) {
 				state = {
 					...state,
@@ -28,7 +28,7 @@ const details = (state: State, action: Action): State => {
 				};
 			}
 			return state;
-		case types.TEST_PERSON_TOGGLE_ATTENDING:
+		case types.TEST_PERSONS_TOGGLE_ATTENDING:
 			if (state.id === action.payload) {
 				state = {
 					...state,
@@ -42,9 +42,9 @@ const details = (state: State, action: Action): State => {
 };
 
 // remember to avoid mutation within reducers
-export const testPerson = (state = initialState, action: Action): State[] => {
+export const testPersons = (state = initialState, action: Action): State[] => {
 	switch (action.type) {
-		case types.TEST_PERSON_ADD_PERSON:
+		case types.TEST_PERSONS_ADD_PERSON:
 			state = [
 				...state,
 				{
@@ -55,18 +55,18 @@ export const testPerson = (state = initialState, action: Action): State[] => {
 				}
 			];
 			return state;
-		case types.TEST_PERSON_REMOVE_PERSON:
+		case types.TEST_PERSONS_REMOVE_PERSON:
 			state = state.filter(person => person.id !== action.payload);
 			return state;
 		// to shorten our case statements,
 		// delegate detail updates to second private reducer
-		case types.TEST_PERSON_ADD_GUEST:
+		case types.TEST_PERSONS_ADD_GUEST:
 			state = state.map(person => details(person, action));
 			return state;
-		case types.TEST_PERSON_REMOVE_GUEST:
+		case types.TEST_PERSONS_REMOVE_GUEST:
 			state = state.map(person => details(person, action));
 			return state;
-		case types.TEST_PERSON_TOGGLE_ATTENDING:
+		case types.TEST_PERSONS_TOGGLE_ATTENDING:
 			state = state.map(person => details(person, action));
 			return state;
 		default:

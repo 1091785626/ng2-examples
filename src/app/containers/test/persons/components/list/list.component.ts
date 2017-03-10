@@ -1,14 +1,14 @@
 import { Component , Input , Output , EventEmitter , ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-	selector: 'app-person-list',
+	selector: 'app-persons-list',
 	styleUrls: ['./list.scss'],
 	templateUrl: './list.html',
 	// 与pure render类似
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PersonListComponent {
-	@Input() people;
+export class PersonsListComponent {
+	@Input() persons;
 	@Input() filter;
     @Output() addGuest = new EventEmitter();
     @Output() removeGuest = new EventEmitter();

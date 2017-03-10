@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 import {Store} from '@ngrx/store';
 
-import 'style-loader!./main.scss';
+// import 'style-loader!./main.scss';
 
 @Component({
 	selector: 'app-view-test-main',

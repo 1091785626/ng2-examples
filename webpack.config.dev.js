@@ -91,6 +91,7 @@ let webpackConfig = {
 };
 
 let defaultConfig = {
+	devtool: 'source-map',
 	output: {
 		filename: '[name].[hash:8].bundle.js',
 		sourceMapFilename: '[name].[hash:8].bundle.map',

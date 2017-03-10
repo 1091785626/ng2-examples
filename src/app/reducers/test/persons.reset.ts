@@ -4,11 +4,11 @@ import * as types from '../../constants/actions/test';
 
 const INIT = '__NOT_A_REAL_ACTION__';
 
-export const testPersonReset = reducer => {
+export const testPersonsReset = reducer => {
 	const initialState = reducer(undefined, {type: INIT});
 	return function (state, action) {
 		// if reset action is fired, return initial state
-		if (action.type === types.TEST_PERSON_RESET_STATE) {
+		if (action.type === types.TEST_PERSONS_RESET_STATE) {
 			return initialState;
 		}
 		// calculate next state based on action

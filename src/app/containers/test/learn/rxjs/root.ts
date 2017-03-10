@@ -1,6 +1,6 @@
 import { withLatestFrom } from './withLatestFrom';
 import { combineLatest } from './combineLatest';
-export const fn = {
+export const learnRxjs = {
 	withLatestFrom,
 	combineLatest
 };

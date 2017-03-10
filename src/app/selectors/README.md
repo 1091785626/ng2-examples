@@ -10,3 +10,5 @@ To accomplish this we will create a new file to house our application selectors.
 # 目录结构
 
 以路由名字划分文件夹，比如`test`，然后在里面创建selectors
+
+# 引入reselect

@@ -3,25 +3,25 @@
 	Reset Party
 </button>
 <h4> Percent Attendance: {{percentAttendance$ | async}}%</h4>
-<app-person-stats
+<app-persons-stats
 	[invited]="(data$ | async)?.total"
 	[attending]="(data$ | async)?.attending"
 	[guests]="(data$ | async)?.guests"
 >
-</app-person-stats>
-<app-person-filter
+</app-persons-stats>
+<app-persons-filter
 	(updateFilter)="updateFilter($event)"
 >
-</app-person-filter>
-<app-person-input
+</app-persons-filter>
+<app-persons-input
 	(addPerson)="addPerson($event)"
 >
-</app-person-input>
-<app-person-list
-	[people]="(data$ | async)?.people"
+</app-persons-input>
+<app-persons-list
+	[persons]="(data$ | async)?.persons"
 	(addGuest)="addGuest($event)"
 	(removeGuest)="removeGuest($event)"
 	(removePerson)="removePerson($event)"
 	(toggleAttending)="toggleAttending($event)"
 >
-</app-person-list>
+</app-persons-list>

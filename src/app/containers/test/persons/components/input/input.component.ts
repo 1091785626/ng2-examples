@@ -1,10 +1,10 @@
 import { Component , Output , EventEmitter } from '@angular/core';
 
 @Component({
-	selector: 'app-person-input',
+	selector: 'app-persons-input',
 	templateUrl: './input.html',
 })
-export class PersonInputComponent {
+export class PersonsInputComponent {
 	@Output() addPerson = new EventEmitter();
 	constructor() {
 	}

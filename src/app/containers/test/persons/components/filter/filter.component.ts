@@ -2,22 +2,22 @@ import { Component , Output , EventEmitter } from '@angular/core';
 import * as types from '../../../../../constants/actions/test';
 
 @Component({
-	selector: 'app-person-filter',
+	selector: 'app-persons-filter',
 	templateUrl: './filter.html',
 })
-export class PersonFilterComponent {
+export class PersonsFilterComponent {
 	public filters = [
 		{
 			friendly: 'All',
-			action: types.TEST_PERSON_SHOW_ALL
+			action: types.TEST_PERSONS_SHOW_ALL
 		},
 		{
 			friendly: 'Attending',
-			action: types.TEST_PERSON_SHOW_ATTENDING
+			action: types.TEST_PERSONS_SHOW_ATTENDING
 		},
 		{
 			friendly: 'Attending w/ Guests',
-			action: types.TEST_PERSON_SHOW_WITH_GUESTS
+			action: types.TEST_PERSONS_SHOW_WITH_GUESTS
 		}
 	];
 	@Output() updateFilter: EventEmitter<string> = new EventEmitter<string>();

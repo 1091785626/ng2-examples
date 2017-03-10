@@ -1,10 +1,10 @@
 import { Component , Input } from '@angular/core';
 
 @Component({
-	selector: 'app-person-stats',
+	selector: 'app-persons-stats',
 	templateUrl: './stats.html',
 })
-export class PersonStatsComponent {
+export class PersonsStatsComponent {
 	@Input() invited;
 	@Input() attending;
 	@Input() guests;

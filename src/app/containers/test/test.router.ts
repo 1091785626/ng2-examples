@@ -5,7 +5,7 @@ import { PagesTestComponent } from './test.component';
 import { MainComponent } from './main/main.component';
 import { SecondComponent } from './second/second.component';
 import { LearnComponent } from './learn/learn.component';
-import { PersonComponent } from './person/person.component';
+import { PersonsComponent } from './persons/persons.component';
 
 const routes: Routes = [
 	{
@@ -14,7 +14,7 @@ const routes: Routes = [
 		children: [
 			{
 				path: '',
-				redirectTo: 'person',
+				redirectTo: 'persons',
 				pathMatch: 'full'
 			},
 			{
@@ -30,8 +30,8 @@ const routes: Routes = [
 				component: LearnComponent
 			},
 			{
-				path: 'person',
-				component: PersonComponent
+				path: 'persons',
+				component: PersonsComponent
 			},
 		]
 	}

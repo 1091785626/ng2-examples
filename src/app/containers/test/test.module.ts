@@ -14,12 +14,12 @@ import { MainTextComponent } from './main/components/text/text.component';
 import { SecondComponent } from './second/second.component';
 // learn
 import { LearnComponent } from './learn/learn.component';
-// person
-import { PersonComponent } from './person/person.component';
-import { PersonInputComponent } from './person/components/input/input.component';
-import { PersonListComponent } from './person/components/list/list.component';
-import { PersonFilterComponent } from './person/components/filter/filter.component';
-import { PersonStatsComponent } from './person/components/stats/stats.component';
+// persons
+import { PersonsComponent } from './persons/persons.component';
+import { PersonsInputComponent } from './persons/components/input/input.component';
+import { PersonsListComponent } from './persons/components/list/list.component';
+import { PersonsFilterComponent } from './persons/components/filter/filter.component';
+import { PersonsStatsComponent } from './persons/components/stats/stats.component';
 
 @NgModule({
 	imports: [
@@ -33,11 +33,11 @@ import { PersonStatsComponent } from './person/components/stats/stats.component'
 		MainTextComponent,
 		SecondComponent,
 		LearnComponent,
-		PersonComponent,
-		PersonInputComponent,
-		PersonListComponent,
-		PersonFilterComponent,
-		PersonStatsComponent
+		PersonsComponent,
+		PersonsInputComponent,
+		PersonsListComponent,
+		PersonsFilterComponent,
+		PersonsStatsComponent
 	],
 	// exports: [PagesTestComponent]
 	// providers: [],

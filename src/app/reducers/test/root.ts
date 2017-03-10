@@ -1,10 +1,10 @@
 import { testMain } from './main';
-import { testPerson } from './person';
-import { testPersonReset } from './person.reset';
+import { testPersons } from './persons';
+import { testPersonsReset } from './persons.reset';
 import { testFilter } from './filter';
 
 export const test = {
 	testMain,
-	testPerson: testPersonReset(testPerson),
+	testPersons: testPersonsReset(testPersons),
 	testFilter
 };

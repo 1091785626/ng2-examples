@@ -3,29 +3,23 @@ import {Observable} from 'rxjs/Rx';
 import {Store} from '@ngrx/store';
 
 import * as types from '../../../constants/actions/test';
-import { partyData , attendees , percentAttending } from '../../../selectors/test/person';
+import { dataSelector , percentAttendingSelector } from '../../../selectors/test/persons';
 
 @Component({
-	selector: 'app-view-test-person',
-	templateUrl: './person.html',
+	selector: 'app-view-test-persons',
+	templateUrl: './persons.html',
 })
-export class PersonComponent {
+export class PersonsComponent {
 	data$: Observable<any>;
 	percentAttendance$: Observable<any>;
 	constructor(private store: Store<any>) {
-		this.data$ = Observable.combineLatest(
-			store.select('testPerson'),
-			store.select('testFilter'),
-		)
-		// extracting party model to selector
-		.let(partyData());
-		// store.let(attendees());
-		this.percentAttendance$ = store.let(percentAttending());
+		this.data$ = store.select(dataSelector);
+		this.percentAttendance$ = store.select(percentAttendingSelector);
 	}
 	addPerson(name) {
 		this.store.dispatch(
 			{
-				type: types.TEST_PERSON_ADD_PERSON,
+				type: types.TEST_PERSONS_ADD_PERSON,
 				payload: {
 					id: Math.floor(Math.random() * (5000)),
 					name
@@ -36,7 +30,7 @@ export class PersonComponent {
 	addGuest(id) {
 		this.store.dispatch(
 			{
-				type: types.TEST_PERSON_ADD_GUEST,
+				type: types.TEST_PERSONS_ADD_GUEST,
 				payload: id
 			}
 		);
@@ -44,7 +38,7 @@ export class PersonComponent {
 	removeGuest(id) {
 		this.store.dispatch(
 			{
-				type: types.TEST_PERSON_REMOVE_GUEST,
+				type: types.TEST_PERSONS_REMOVE_GUEST,
 				payload: id
 			}
 		);
@@ -52,7 +46,7 @@ export class PersonComponent {
 	removePerson(id) {
 		this.store.dispatch(
 			{
-				type: types.TEST_PERSON_REMOVE_PERSON,
+				type: types.TEST_PERSONS_REMOVE_PERSON,
 				payload: id
 			}
 		);
@@ -60,7 +54,7 @@ export class PersonComponent {
 	toggleAttending(id) {
 		this.store.dispatch(
 			{
-				type: types.TEST_PERSON_TOGGLE_ATTENDING,
+				type: types.TEST_PERSONS_TOGGLE_ATTENDING,
 				payload: id
 			}
 		);
@@ -69,6 +63,6 @@ export class PersonComponent {
 		this.store.dispatch({type: filter});
 	}
 	resetParty() {
-		this.store.dispatch({type: types.TEST_PERSON_RESET_STATE});
+		this.store.dispatch({type: types.TEST_PERSONS_RESET_STATE});
 	}
 }
