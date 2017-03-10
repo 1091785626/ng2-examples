@@ -3,6 +3,7 @@ import {Observable} from 'rxjs/Rx';
 import {Store} from '@ngrx/store';
 
 import * as types from '../../../constants/actions/test';
+import * as actions from '../../../actions/test';
 import { dataSelector , percentAttendingSelector } from '../../../selectors/test/persons';
 
 @Component({
@@ -17,52 +18,28 @@ export class PersonsComponent {
 		this.percentAttendance$ = store.select(percentAttendingSelector);
 	}
 	addPerson(name) {
-		this.store.dispatch(
-			{
-				type: types.TEST_PERSONS_ADD_PERSON,
-				payload: {
-					id: Math.floor(Math.random() * (5000)),
-					name
-				}
-			}
-		);
+		const payload =  {
+			id: Math.floor(Math.random() * (5000)),
+			name
+		};
+		this.store.dispatch(actions.addPerson(payload));
 	}
 	addGuest(id) {
-		this.store.dispatch(
-			{
-				type: types.TEST_PERSONS_ADD_GUEST,
-				payload: id
-			}
-		);
+		this.store.dispatch(actions.addGuest(id));
 	}
 	removeGuest(id) {
-		this.store.dispatch(
-			{
-				type: types.TEST_PERSONS_REMOVE_GUEST,
-				payload: id
-			}
-		);
+		this.store.dispatch(actions.removeGuest(id));
 	}
 	removePerson(id) {
-		this.store.dispatch(
-			{
-				type: types.TEST_PERSONS_REMOVE_PERSON,
-				payload: id
-			}
-		);
+		this.store.dispatch(actions.removePerson(id));
 	}
 	toggleAttending(id) {
-		this.store.dispatch(
-			{
-				type: types.TEST_PERSONS_TOGGLE_ATTENDING,
-				payload: id
-			}
-		);
+		this.store.dispatch(actions.toggleAttending(id));
 	}
 	updateFilter(filter) {
-		this.store.dispatch({type: filter});
+		this.store.dispatch(actions.updateFilter(filter));
 	}
 	resetParty() {
-		this.store.dispatch({type: types.TEST_PERSONS_RESET_STATE});
+		this.store.dispatch(actions.resetParty());
 	}
 }
