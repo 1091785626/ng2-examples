@@ -19,25 +19,25 @@ export const addPerson = (payload: {id: number, name: any}): Action => {
 export const addGuest = (id) => {
 	return {
 		type: types.TEST_PERSONS_ADD_GUEST,
-		id
+		payload: id
 	};
 };
 export const removeGuest = (id) => {
 	return {
 		type: types.TEST_PERSONS_REMOVE_GUEST,
-		id
+		payload: id
 	};
 };
 export const removePerson = (id) => {
 	return {
 		type: types.TEST_PERSONS_REMOVE_PERSON,
-		id
+		payload: id
 	};
 };
 export const toggleAttending = (id) => {
 	return {
 		type: types.TEST_PERSONS_TOGGLE_ATTENDING,
-		id
+		payload: id
 	};
 };
 export const updateFilter = (type) => {
