@@ -9,8 +9,6 @@ import '@angular/router';
 
 
 // RxJS
-import {Observable} from 'rxjs/Rx';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/mergeMap';
+import 'rxjs/Rx';
 
 // import './styles.css'

@@ -2,7 +2,7 @@ import { combineReducers, ActionReducer } from '@ngrx/store';
 import { compose } from '@ngrx/core';
 import { test } from './test/root';
 
-export const reducers = combineReducers({
+const reducers = combineReducers({
 	...test
 });
 export function rootReducer(state: any, action: any) {

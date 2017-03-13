@@ -10,7 +10,7 @@ export interface State {
 
 export const initialState: State[] = [];
 
-const details = (state: State, action: Action): State => {
+const details = (state: State, action: any): State => {
 	switch (action.type) {
 		case types.TEST_PERSONS_ADD_GUEST:
 			if (state.id === action.payload) {
@@ -42,7 +42,7 @@ const details = (state: State, action: Action): State => {
 };
 
 // remember to avoid mutation within reducers
-export const testPersons = (state = initialState, action: Action): State[] => {
+export const testPersons = (state = initialState, action: any): State[] => {
 	switch (action.type) {
 		case types.TEST_PERSONS_ADD_PERSON:
 			state = [
@@ -57,6 +57,25 @@ export const testPersons = (state = initialState, action: Action): State[] => {
 			return state;
 		case types.TEST_PERSONS_REMOVE_PERSON:
 			state = state.filter(person => person.id !== action.payload);
+			return state;
+		case types.TEST_PERSONS_ADD_PERSON_POST + '_ON':
+			// console.log('_ON');
+			return state;
+		case types.TEST_PERSONS_ADD_PERSON_GET + '_SUCCESS':
+		case types.TEST_PERSONS_ADD_PERSON_POST + '_SUCCESS':
+			// console.log('_SUCCESS');
+			state = [
+				...state,
+				{
+					id: action.param.id,
+					name: action.param.name,
+					guests: 0,
+					attending: false
+				}
+			];
+			return state;
+		case types.TEST_PERSONS_ADD_PERSON_POST + '_ERROR':
+			// console.log('_ERROR');
 			return state;
 		// to shorten our case statements,
 		// delegate detail updates to second private reducer

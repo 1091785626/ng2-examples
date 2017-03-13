@@ -1,6 +1,17 @@
 // 修改来自reudx
 function bindActionCreator(actionCreator, dispatch) {
-	return (...args) => this.dispatch(actionCreator(...args));
+	return (...args) => {
+		// console.log(args, 1, actionCreator.name);
+		// if (actionCreator.name === 'request') {
+		// 	this.dispatch({
+		// 		type: args[0] + '_ON',
+		// 		param: args[1] || {},
+		// 		opts: args[2] || {},
+		// 		data: null
+		// 	});
+		// }
+		return this.dispatch(actionCreator(...args));
+	};
 }
 
 /**

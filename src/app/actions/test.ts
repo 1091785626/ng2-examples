@@ -2,6 +2,7 @@
 import { Action } from '@ngrx/store';
 import * as types from '../constants/actions/test';
 
+export { request } from './common/request';
 // 之前react项目中使用过的方式
 export const addPerson = (payload: {id: number, name: any}): Action => {
 	return {
