@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 // reudx
-import { appStoring } from './stores/stores.config';
-
+import { appStoring, appRouterStoring } from './stores/stores.config';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 // effecting
 import { effecting } from './effects/effects';
 
@@ -18,7 +18,11 @@ import { appRouting } from './app.router';
 		BrowserModule,
 		appRouting,
 		appStoring,
-		effecting
+		effecting,
+		appRouterStoring,
+		StoreDevtoolsModule.instrumentOnlyWithExtension({
+			maxAge: 5
+		})
 	],
 	// providers: [],
 	bootstrap: [AppComponent]

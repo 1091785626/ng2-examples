@@ -1,8 +1,9 @@
 import { combineReducers, ActionReducer } from '@ngrx/store';
 import { compose } from '@ngrx/core';
 import { test } from './test/root';
-
+import { routerReducer } from '@ngrx/router-store';
 const reducers = combineReducers({
+	router: routerReducer,
 	...test
 });
 export function rootReducer(state: any, action: any) {

@@ -33,6 +33,11 @@ const routes: Routes = [
 				path: 'persons',
 				component: PersonsComponent
 			},
+			{
+				path: '*',
+				redirectTo: 'persons',
+				pathMatch: 'full'
+			}
 		]
 	}
 ];

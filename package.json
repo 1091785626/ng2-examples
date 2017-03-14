@@ -13,7 +13,7 @@
     "build:os": "export NODE_ENV=production&& npm run dist",
     "dist": "npm run remove:dist && webpack --config webpack.config.aot.js -p --progress --color",
     "remove:dist": "rm -rf dist",
-    "lint": "tslint 'src\/**\/*.ts' --force",
+    "lint": "tslint 'src/**/*.ts' --force",
     "delete": "find ./src -name '*.js' -delete && find ./src -name '*.map' -delete"
   },
   "author": "deot",
@@ -29,7 +29,9 @@
     "@angular/router": "^3.4.8",
     "@ngrx/core": "^1.2.0",
     "@ngrx/effects": "^2.0.0",
+    "@ngrx/router-store": "^1.2.5",
     "@ngrx/store": "^2.2.1",
+    "@ngrx/store-devtools": "^3.2.3",
     "core-js": "^2.4.1",
     "reflect-metadata": "^0.1.10",
     "reselect": "^2.5.4",

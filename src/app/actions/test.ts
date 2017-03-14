@@ -1,4 +1,4 @@
-
+export { go, replace, search, show, back, forward } from '@ngrx/router-store';
 import { Action } from '@ngrx/store';
 import * as types from '../constants/actions/test';
 
