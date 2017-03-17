@@ -1,20 +1,21 @@
 import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 
-import { PagesTestComponent } from './test.component';
+import { TestComponent } from './test.component';
 import { MainComponent } from './main/main.component';
 import { SecondComponent } from './second/second.component';
 import { LearnComponent } from './learn/learn.component';
 import { PersonsComponent } from './persons/persons.component';
+import { UIComponent } from './ui/ui.component';
 
 const routes: Routes = [
 	{
 		path: '',
-		component: PagesTestComponent,
+		component: TestComponent,
 		children: [
 			{
 				path: '',
-				redirectTo: 'learn',
+				redirectTo: 'main',
 				pathMatch: 'full'
 			},
 			{
@@ -34,8 +35,12 @@ const routes: Routes = [
 				component: PersonsComponent
 			},
 			{
-				path: '*',
-				redirectTo: 'persons',
+				path: 'ui',
+				component: UIComponent
+			},
+			{
+				path: '**',
+				redirectTo: 'main',
 				pathMatch: 'full'
 			}
 		]

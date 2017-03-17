@@ -1,12 +1,5 @@
-h1{
-	color: red;
-	font-size: 2em;
-}
-div{
-	color: green;
-	font-size: 2em;
-}
-a{
-	color:black;
-	margin:10px
-}
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+@import url("http://at.alicdn.com/t/font_h9riwnqjepcik9.css");
+@import url(./reset.scss);
+@import url("http://at.alicdn.com/t/font_h9riwnqjepcik9.css");
+@import url(./ui.scss);

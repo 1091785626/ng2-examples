@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { learnRxjs } from './rxjs/root';
-import { learnReselect } from './reselect/root';
-import { learnSources } from './sources/root';
+import { learnRxjs } from '../../../components/test/learn/rxjs/root';
+import { learnReselect } from '../../../components/test/learn/reselect/root';
+import { learnSources } from '../../../components/test/learn/sources/root';
 
 @Component({
-	selector: 'app-view-test-learn',
+	selector: 'app-pages-test-learn',
 	templateUrl: './learn.html',
 })
 export class LearnComponent implements OnInit {

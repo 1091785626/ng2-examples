@@ -2,9 +2,12 @@ import {Component} from '@angular/core';
 
 @Component({
 	selector: 'app-pages-test',
-	template: `<router-outlet></router-outlet>`,
+	template: `
+		<app-pages-test-nav></app-pages-test-nav>
+		<router-outlet></router-outlet>
+	`,
 })
-export class PagesTestComponent {
+export class TestComponent {
 	constructor() {
 	}
 }

@@ -1,0 +1,34 @@
+<!-- 手风琴 -->
+<h3>Accordion (手风琴)</h3>
+<accordion>
+	<accordion-group heading="Static Header, initially expanded">
+		This content is straight in the template.
+	</accordion-group>
+
+	<accordion-group #group>
+		<div accordion-heading>
+			I can have markup, too!
+			<i 
+				class="pull-right float-xs-right glyphicon"
+				[ngClass]="{'glyphicon-chevron-down': group?.isOpen, 'glyphicon-chevron-right': !group?.isOpen}"
+			></i>
+		</div>
+		This is just some content to illustrate fancy headings.
+	</accordion-group>
+	<accordion-group heading="disabled" [isDisabled]="true">
+		This content is straight in the template.
+	</accordion-group>
+	<accordion-group heading="isopen" [isOpen]="true">
+		This content is straight in the template.
+	</accordion-group>
+</accordion>
+<!-- 弹窗 -->
+<h3>Alert（弹窗）</h3>
+<alert type="success">
+	<strong>Well done!</strong> You successfully read this important alert message.
+</alert>
+<alert type="success" [dismissible]="true">
+	<strong>Well done!</strong> You successfully read this important alert message.
+</alert>
+
+

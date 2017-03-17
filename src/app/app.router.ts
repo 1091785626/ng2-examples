@@ -12,8 +12,8 @@ export const appRoutes: Routes = [
 		loadChildren: './containers/test/test.module#PagesTestModule' ,
 	},
 	{
-		path: '*',
-		redirectTo: 'test',
+		path: '**',
+		redirectTo: '/test',
 		pathMatch: 'full'
 	}
 ];

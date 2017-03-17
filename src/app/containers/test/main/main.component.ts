@@ -5,7 +5,7 @@ import {Store} from '@ngrx/store';
 // import 'style-loader!./main.scss';
 
 @Component({
-	selector: 'app-view-test-main',
+	selector: 'app-pages-test-main',
 	templateUrl: './main.html',
 })
 export class MainComponent {

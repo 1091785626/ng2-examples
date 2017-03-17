@@ -27,7 +27,7 @@ let webpackConfig = {
 	},
 
 	plugins: [
-		new ExtractTextPlugin({filename: 'initial.css', allChunks: true}),
+		new ExtractTextPlugin({filename: 'initial.[hash:8].css', allChunks: true}),
 		/**
 		 * 输出html
 		 */
@@ -87,18 +87,15 @@ let webpackConfig = {
 				]
 			}, 
 			{
-				test: /\.css$/,
-				use: ['raw-loader','css-loader']
-			}, 
-			{
-				test: /\.scss$/,
+				test: /\.(scss|css)$/,
 				use: ['raw-loader','sass-loader'],
 			},
 			{
-				test: /initial\.scss$/,
-				loader: ExtractTextPlugin.extract({
+				test: /\.scss$/,
+				exclude: [/node_modules/, /src\/app/], 
+				use: ExtractTextPlugin.extract({
 					fallbackLoader: 'style-loader',
-					loader: 'css-loader!sass-loader?sourceMap'
+					use: ['css-loader','sass-loader']
 				})
 			},
 			{

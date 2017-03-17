@@ -1,9 +1,9 @@
 import { Component , Input , Output , EventEmitter , ChangeDetectionStrategy } from '@angular/core';
-
+// import 'style-loader!./list.scss';
 @Component({
 	selector: 'app-persons-list',
-	styleUrls: ['./list.scss'],
 	templateUrl: './list.html',
+	styleUrls: ['./list.scss'],
 	// 与pure render类似
 	changeDetection: ChangeDetectionStrategy.OnPush
 })

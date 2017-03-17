@@ -1,5 +1,5 @@
 import { Component , Output , EventEmitter } from '@angular/core';
-import * as types from '../../../../../constants/actions/test';
+import * as types from '../../../../constants/actions/test';
 
 @Component({
 	selector: 'app-persons-filter',

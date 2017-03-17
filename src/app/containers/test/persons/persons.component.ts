@@ -8,7 +8,7 @@ import { dataSelector , percentAttendingSelector } from '../../../selectors/test
 import bindActionCreators from '../../../utils/lib/bindActionCreators';
 
 @Component({
-	selector: 'app-view-test-persons',
+	selector: 'app-pages-test-persons',
 	templateUrl: './persons.html',
 })
 export class PersonsComponent implements OnInit, OnDestroy {
