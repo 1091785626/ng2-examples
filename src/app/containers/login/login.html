@@ -1,0 +1,55 @@
+<div class="pages-login">
+	<div class="panel panel-default _main">
+		<div class="panel-heading">
+			<h3 class="panel-title">登录</h3>
+		</div>
+		<div class="panel-body">
+			<form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm.value)" class="form-horizontal" novalidate>
+				<div class="form-group row" [ngClass]="{'has-error': (!user.valid && user.touched), 'has-success': (user.valid && user.touched)}">
+					<label for="userName" class="col-sm-2 control-label">用户名：</label>
+
+					<div class="col-sm-10">
+						<input 
+							[formControl]="user" 
+							type="text" 
+							class="form-control" 
+							id="userName" 
+							placeholder="请输入用户名"
+						>
+						<div *ngIf="formErrors.user" class="text-danger">
+							{{ formErrors.user }}
+						</div>
+					</div>
+				</div>
+				<div 
+					class="form-group row" [ngClass]="{'has-error': (!password.valid && password.touched), 'has-success': (password.valid && password.touched)}">
+					<label for="userPasswoed" class="col-sm-2 control-label">密码：</label>
+
+					<div class="col-sm-10">
+						<input 
+							[formControl]="password" 
+							type="password" 
+							class="form-control" 
+							id="userPasswoed" 
+							placeholder="请输入密码"
+						/>
+						<div *ngIf="formErrors.password" class="text-danger">
+							{{ formErrors.password }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button 
+							[disabled]="!userForm.valid" 
+							type="submit" 
+							class="btn btn-success"
+						>登录</button>
+						<button type="button" class="btn btn-danger" (click)="handleForget()">忘记密码？</button>
+						<a routerLink="/register">新用户? 注册!</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

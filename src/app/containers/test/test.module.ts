@@ -14,6 +14,8 @@ import { PersonsModule } from './persons/persons.module';
 import { UIModule } from './ui/ui.module';
 // nav
 import { NavModule } from './nav/nav.module';
+// form
+import { FormModule } from './form/form.module';
 @NgModule({
 	imports: [
 		routing,
@@ -22,7 +24,8 @@ import { NavModule } from './nav/nav.module';
 		PersonsModule,
 		LearnModule,
 		UIModule,
-		NavModule
+		NavModule,
+		FormModule
 	],
 	declarations: [
 		TestComponent

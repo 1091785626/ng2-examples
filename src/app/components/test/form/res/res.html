@@ -1,0 +1,77 @@
+<h3>响应式表单</h3>
+<div class="user-register-container">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">注册</h3>
+		</div>
+		<div class="panel-body">
+			<form [formGroup]="userForm" (ngSubmit)="handleRegister()" class="form-horizontal" role="form" novalidate>
+				<div class="form-group" [ngClass]="{'has-error': formErrors.userName }">
+					<label class="col-sm-3 control-label">用户名</label>
+					<div class="col-sm-8">
+						<input required formControlName="userName" type="text" class="form-control" placeholder="请输入你的用户名">
+						<div *ngIf="formErrors.userName" class="text-danger">
+							{{ formErrors.userName }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group" [ngClass]="{'has-error': formErrors.nickName }">
+					<label class="col-sm-3 control-label">昵称</label>
+					<div class="col-sm-8">
+						<input required formControlName="nickName" type="text" class="form-control" placeholder="请输入你的昵称">
+						<div *ngIf="formErrors.nickName" class="text-danger">
+							{{ formErrors.nickName }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group" [ngClass]="{'has-error': formErrors.email }">
+					<label class="col-sm-3 control-label">邮箱地址</label>
+					<div class="col-sm-8">
+						<input required formControlName="email" type="email" class="form-control" placeholder="请输入你的邮箱地址">
+						<div *ngIf="formErrors.email" class="text-danger">
+							{{ formErrors.email }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group" [ngClass]="{'has-error': formErrors.password }">
+					<label class="col-sm-3 control-label">密码</label>
+					<div class="col-sm-8">
+						<input required formControlName="password"  reverse=true validateEqual="confirmPassword" type="password" class="form-control" placeholder="请输入你的密码">
+						<div *ngIf="formErrors.password" class="text-danger">
+							{{ formErrors.password }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group" [ngClass]="{'has-error': formErrors.confirmPassword }">
+					<label class="col-sm-3 control-label">重新输入密码</label>
+					<div class="col-sm-8">
+						<input required formControlName="confirmPassword"  type="password" validateEqual="password" class="form-control" placeholder="重新输入">
+						<div *ngIf="formErrors.confirmPassword" class="text-danger">
+							{{ formErrors.confirmPassword }}
+						</div>
+					</div>
+				</div>
+				<div class="form-group" [ngClass]="{'has-error': formErrors.vcode }">
+					<label class="col-sm-3 control-label">验证码：</label>
+					<div class="col-sm-5">
+						<input required formControlName="vcode" class="form-control" placeholder="验证码">
+						<div *ngIf="formErrors.vcode" class="text-danger">
+							{{ formErrors.vcode }}
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<!-- <img id="vCodeImg" src="" alt="验证码"> -->
+						<div class="btn btn-primary" id="reloadVCode" (click)="handleSms()">重新获取</div>
+					</div>
+				</div>
+				<div *ngIf="formErrors.formError" class="col-sm-offset-3 col-sm-8 alert alert-danger">{{ formErrors.formError }}</div>
+				<div class="form-group">
+					<div class="col-sm-offset-3 col-sm-8">
+						<button [disabled]="userForm.invalid" type="submit" class="btn btn-success">注册</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+

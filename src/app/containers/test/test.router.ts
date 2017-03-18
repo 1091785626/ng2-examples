@@ -7,6 +7,7 @@ import { SecondComponent } from './second/second.component';
 import { LearnComponent } from './learn/learn.component';
 import { PersonsComponent } from './persons/persons.component';
 import { UIComponent } from './ui/ui.component';
+import { FormComponent } from './form/form.component';
 
 const routes: Routes = [
 	{
@@ -37,6 +38,10 @@ const routes: Routes = [
 			{
 				path: 'ui',
 				component: UIComponent
+			},
+			{
+				path: 'form',
+				component: FormComponent
 			},
 			{
 				path: '**',

@@ -22,6 +22,22 @@ let webpackConfig = {
 		 */
 		publicPath: '/'
 	},
+	resolve: {//重定向路径
+		alias: {
+			'@actions'		: path.resolve(__dirname, 'src/app/actions'),
+			'@animations'	: path.resolve(__dirname, 'src/app/animations'),
+			'@components'	: path.resolve(__dirname, 'src/app/components'),
+			'@constants'	: path.resolve(__dirname, 'src/app/constants'),
+			'@constainers'	: path.resolve(__dirname, 'src/app/constainers'),
+			'@effects'		: path.resolve(__dirname, 'src/app/effects'),
+			'@models'		: path.resolve(__dirname, 'src/app/models'),
+			'@pipes'		: path.resolve(__dirname, 'src/app/models'),
+			'@reducers'		: path.resolve(__dirname, 'src/app/reducers'),
+			'@selectors'	: path.resolve(__dirname, 'src/app/models'),
+			'@stores'		: path.resolve(__dirname, 'src/app/stores'),
+			'@utils'		: path.resolve(__dirname, 'src/app/utils'),
+		}
+	},
 	plugins: [
       	new ExtractTextPlugin({
       		filename: 'initial.[hash:8].css', 

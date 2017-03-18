@@ -4,7 +4,7 @@ import { ModuleWithProviders } from '@angular/core';
 export const appRoutes: Routes = [
 	{
 		path: '',
-		redirectTo: 'test',
+		redirectTo: 'test/form',
 		pathMatch: 'full'
 	},
 	{
@@ -12,8 +12,16 @@ export const appRoutes: Routes = [
 		loadChildren: './containers/test/test.module#PagesTestModule' ,
 	},
 	{
+		path: 'login',
+		loadChildren: './containers/login/login.module#PagesLoginModule' ,
+	},
+	{
+		path: 'register',
+		loadChildren: './containers/register/register.module#PagesRegisterModule' ,
+	},
+	{
 		path: '**',
-		redirectTo: '/test',
+		redirectTo: '/login',
 		pathMatch: 'full'
 	}
 ];
