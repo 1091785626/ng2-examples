@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { routing } from './register.router';
 import { RegisterComponent } from './register.component';
-import { EqualValidatorDirective } from './equal-validator.directive';
+import { EqualValidatorDirective } from '../../common/directives/equal-validator.directive';
 
 @NgModule({
 	imports: [

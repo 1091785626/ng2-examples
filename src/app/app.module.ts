@@ -5,11 +5,12 @@ import { HttpModule } from '@angular/http';
 import { appStoring, appRouterStoring } from './stores/stores.config';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 // effecting
-import { effecting } from './effects/effects';
+import { requestEffecting } from './effects/request';
 
 import { AppComponent } from './app.component';
 
 import { appRouting } from './app.router';
+import { RequestService } from './services/request.service';
 @NgModule({
 	declarations: [AppComponent],
 	imports: [
@@ -17,13 +18,13 @@ import { appRouting } from './app.router';
 		BrowserModule,
 		appRouting,
 		appStoring,
-		effecting,
+		requestEffecting,
 		appRouterStoring,
 		StoreDevtoolsModule.instrumentOnlyWithExtension({
 			maxAge: 5
 		})
 	],
-	// providers: [],
+	providers: [RequestService],
 	bootstrap: [AppComponent]
 })
 export class AppModule {

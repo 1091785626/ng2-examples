@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // 双向绑定
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EqualValidatorDirective } from '../../../components/test/form/res/equal-validator.directive';
+import { EqualValidatorDirective } from '../../../common/directives/equal-validator.directive';
 import { FormComponent } from './form.component';
 import { FormTplComponent } from '../../../components/test/form/tpl/tpl.component';
 import { FormResComponent } from '../../../components/test/form/res/res.component';

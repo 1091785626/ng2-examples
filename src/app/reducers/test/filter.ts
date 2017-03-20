@@ -2,7 +2,10 @@ import { ActionReducer, Action } from '@ngrx/store';
 
 import * as types from '../../constants/actions/test';
 export type State = (person: any) => any;
-
+// 不能使用这方式
+// export interface State {
+// 	(person: any): any;
+// }
 export const initialState: State = person => person;
 
 export const testFilter = (state = initialState, action: Action): State => {
