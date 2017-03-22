@@ -17,6 +17,7 @@ const nextAction = (type, param, opts) => {
 };
 @Injectable()
 export class RequestEffects {
+	// 他会被subscribe(next, error) 会自己去触发一些action
 	@Effect()
 	request$: Observable<Action> = this.actions$
 		.ofType('API_REQUEST')

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
+import { SharedModule } from './shared/shared.module';
 // reudx
 import { appStoring, appRouterStoring } from './stores/stores.config';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -12,10 +13,10 @@ import { AppComponent } from './app.component';
 import { appRouting } from './app.router';
 import { RequestService } from './services/request.service';
 @NgModule({
-	declarations: [AppComponent],
 	imports: [
 		HttpModule,
 		BrowserModule,
+		SharedModule,
 		appRouting,
 		appStoring,
 		requestEffecting,
@@ -24,6 +25,7 @@ import { RequestService } from './services/request.service';
 			maxAge: 5
 		})
 	],
+	declarations: [AppComponent],
 	providers: [RequestService],
 	bootstrap: [AppComponent]
 })

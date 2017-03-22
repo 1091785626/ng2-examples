@@ -1,14 +1,15 @@
-<h3>@ngrx/store 学习</h3>
-<button (click)="resetParty()"  class="pages-test-ui">
-	Reset Party
-</button>
-<h4> Percent Attendance: {{percentAttendance$ | async}}%</h4>
+<app-persons-content
+	[actions] = "actions"
+	[percentAttendance] = "percentAttendance$ | async"
+>
+</app-persons-content>
 <app-persons-stats
 	[invited]="(data$ | async)?.total"
 	[attending]="(data$ | async)?.attending"
 	[guests]="(data$ | async)?.guests"
 >
 </app-persons-stats>
+<!-- 以下方法不会使用@output，参考app-persons-content中的写法 -->
 <app-persons-filter
 	(updateFilter)="updateFilter($event)"
 >

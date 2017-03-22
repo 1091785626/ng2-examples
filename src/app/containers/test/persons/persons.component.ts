@@ -1,6 +1,6 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
-import {Observable} from 'rxjs/Rx';
-import {Store} from '@ngrx/store';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
+import { Store } from '@ngrx/store';
 
 import * as types from '../../../constants/actions/test';
 import * as actions from '../../../actions/test';

@@ -4,7 +4,7 @@ import { ModuleWithProviders } from '@angular/core';
 export const appRoutes: Routes = [
 	{
 		path: '',
-		redirectTo: 'test/form',
+		redirectTo: 'test',
 		pathMatch: 'full'
 	},
 	{

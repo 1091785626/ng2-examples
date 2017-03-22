@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http, Headers, RequestOptions, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 type ajaxType = 'delete' | 'get' | 'put' | 'post';
 @Injectable()
@@ -21,10 +21,24 @@ export class RequestService {
 				if (paramArray.length > 0) {
 					url += (url.indexOf('?') > -1 ? '&' : '?') + paramArray.join('&');
 				}
-				return this.http[ajaxType](url, options);
+				return this.http[ajaxType](url, options)
+					.map((res: Response) => {
+						const result = res;
+						return result;
+					})
+					.catch((error: any) => {
+						return Observable.throw(error || 'Server error');
+					});
 			case 'put':
 			case 'post':
-				return this.http[ajaxType](url, param, options);
+				return this.http[ajaxType](url, param, options)
+					.map((res: Response) => {
+						const result = res;
+						return result;
+					})
+					.catch((error: any) => {
+						return Observable.throw(error || 'Server error');
+					});
 			default:
 				return;
 		};

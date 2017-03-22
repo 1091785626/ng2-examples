@@ -1,4 +1,4 @@
-import {Observable} from 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
 // signature: combineLatest(observables: ...Observable, project: function): Observable
 
 // 给定一组 Observable ，当其中一个 emit 的时候，其他的 emit 最新的值

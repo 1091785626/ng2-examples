@@ -3,7 +3,6 @@ import { ModuleWithProviders } from '@angular/core';
 
 import { TestComponent } from './test.component';
 import { MainComponent } from './main/main.component';
-import { SecondComponent } from './second/second.component';
 import { LearnComponent } from './learn/learn.component';
 import { PersonsComponent } from './persons/persons.component';
 import { UIComponent } from './ui/ui.component';
@@ -22,10 +21,6 @@ const routes: Routes = [
 			{
 				path: 'main',
 				component: MainComponent
-			},
-			{
-				path: 'second',
-				component: SecondComponent
 			},
 			{
 				path: 'learn',

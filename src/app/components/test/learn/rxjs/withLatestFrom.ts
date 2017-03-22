@@ -1,4 +1,4 @@
-import {Observable} from 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
 // signature: withLatestFrom(other: Observable, project: Function): Observable
 
 // 当 source emit 的时候，同时也返回另一个 Obserable 最近 emit 的那个值。

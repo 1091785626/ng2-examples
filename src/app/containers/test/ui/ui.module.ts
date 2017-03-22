@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Ng2BootstrapModule } from 'ng2-bootstrap';
 
 import { UIComponent } from './ui.component';
+import { UIContentComponent } from '../../../components/test/ui/content/content.component';
 
 @NgModule({
 	imports: [
@@ -11,7 +12,8 @@ import { UIComponent } from './ui.component';
 		Ng2BootstrapModule.forRoot()
 	],
 	declarations: [
-		UIComponent
+		UIComponent,
+		UIContentComponent
 	]
 })
 export class UIModule {

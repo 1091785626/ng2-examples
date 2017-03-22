@@ -1,0 +1,136 @@
+<div class="pages-register">
+	<div class="panel panel-default _main">
+		<div class="panel-heading">
+			<h3 class="panel-title">注册</h3>
+		</div>
+		<div class="panel-body">
+			<form 
+				#registerForm="ngForm" 
+				(ngSubmit)="handleSubmit(registerForm.value, registerForm)" 
+				class="form-horizontal"
+				novalidate
+			>
+				<div 
+					class="form-group row" 
+					[ngClass]="{
+						'has-error': (!nameControl.valid && nameControl.touched), 
+						'has-success': (nameControl.valid && nameControl.touched)
+					}"
+				>
+					<label for="registerName" class="col-sm-2 control-label">用户名：</label>
+
+					<div class="col-sm-10">
+						<input
+							#nameControl="ngModel"
+							name="nameControl"
+							[(ngModel)]="register.name"
+							id="registerName"
+							type="text" 
+							class="form-control" 
+							placeholder="请输入用户名"
+							validRequired="用户名"
+						>
+						<div 
+							*ngIf="nameControl.touched && nameControl?.errors?.validRequired" 
+							class="text-danger"
+						>{{nameControl?.errors?.validRequired}}</div>
+					</div>
+				</div>
+				<div 
+					class="form-group row" 
+					[ngClass]="{
+						'has-error': (!emailControl.valid && emailControl.touched), 
+						'has-success': (emailControl.valid && emailControl.touched)
+					}"
+				>
+					<label for="registerEmail" class="col-sm-2 control-label">邮箱：</label>
+
+					<div class="col-sm-10">
+						<input
+							#emailControl="ngModel"
+							name="emailControl"
+							[(ngModel)]="register.email"
+							id="registerEmail"
+							type="text" 
+							class="form-control" 
+							placeholder="请输入邮箱"
+							validEmail="邮箱"
+						>
+						<div 
+							*ngIf="emailControl.touched && emailControl?.errors?.validEmail" 
+							class="text-danger"
+						>{{emailControl?.errors?.validEmail}}</div>
+					</div>
+				</div>
+				<div 
+					class="form-group row" 
+					[ngClass]="{
+						'has-error': (!passwordControl.valid && passwordControl.touched), 
+						'has-success': (passwordControl.valid && passwordControl.touched)
+					}"
+				>
+					<label for="registerPassword" class="col-sm-2 control-label">密码：</label>
+
+					<div class="col-sm-10">
+						<input 
+							#passwordControl="ngModel"
+							name="passwordControl"
+							[(ngModel)]="register.password" 
+							id="registerPassword" 
+							type="password" 
+							class="form-control" 
+							placeholder="请输入密码"
+							validRequired="密码"
+							validEqual="rePasswordControl"
+							validEqualReverse=true
+							validMinLength="密码至少6位数"
+							maxLength="16"
+						/>
+						<div 
+							*ngIf="passwordControl.touched && (passwordControl?.errors?.validRequired || passwordControl?.errors?.validMinLength)" 
+							class="text-danger"
+						>{{passwordControl?.errors?.validMinLength}} {{passwordControl?.errors?.validRequired}}</div>
+					</div>
+				</div>
+				<div 
+					class="form-group row" 
+					[ngClass]="{
+						'has-error': (!rePasswordControl.valid && rePasswordControl.touched), 
+						'has-success': (rePasswordControl.valid && rePasswordControl.touched)
+					}"
+				>
+					<label for="registerRePassword" class="col-sm-2 control-label">重输入：</label>
+
+					<div class="col-sm-10">
+						<input 
+							#rePasswordControl="ngModel"
+							name="rePasswordControl"
+							[(ngModel)]="register.rePassword" 
+							id="registerRePassword" 
+							type="password" 
+							class="form-control" 
+							placeholder="请重复输入密码"
+							validEqual="passwordControl"
+							validMinLength="密码至少6位数"
+							maxLength="16"
+						/>
+						<div 
+							*ngIf="rePasswordControl.touched && (rePasswordControl?.errors?.validEqual || rePasswordControl?.errors?.validMinLength)" 
+							class="text-danger"
+						>{{rePasswordControl?.errors?.validMinLength}} {{rePasswordControl?.errors?.validEqual}}</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button 
+							[disabled]="!registerForm.valid" 
+							type="submit" 
+							class="btn btn-success"
+						>注册</button>
+						<a [routerLink]="['/login']">已有账号? 登录!</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

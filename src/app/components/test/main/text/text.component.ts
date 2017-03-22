@@ -1,4 +1,5 @@
 import { Component , Input } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 @Component({
 	selector: 'app-main-text',
@@ -6,6 +7,11 @@ import { Component , Input } from '@angular/core';
 })
 export class MainTextComponent {
 	@Input() test;
-	constructor() {
+	constructor(private store: Store<any>) {
+		setTimeout(() => {
+			store.dispatch({
+				type: 'TEST_MAIN_INCREMENT'
+			});
+		}, 2000);
 	}
 }

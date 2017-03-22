@@ -1,0 +1,83 @@
+<div class="pages-login">
+	<div class="panel panel-default _main">
+		<div class="panel-heading">
+			<h3 class="panel-title">登录</h3>
+		</div>
+		<div class="panel-body">
+			<form 
+				#loginForm="ngForm" 
+				(ngSubmit)="handleSubmit(loginForm.value, loginForm)" 
+				class="form-horizontal" 
+				novalidate
+			>
+				<div 
+					class="form-group row" 
+					[ngClass]="{
+						'has-error': (!nameControl.valid && nameControl.touched), 
+						'has-success': (nameControl.valid && nameControl.touched)
+					}"
+				>
+					<label for="userName" class="col-sm-2 control-label">用户名：</label>
+
+					<div class="col-sm-10">
+						<input
+							#nameControl="ngModel"
+							name="nameControl"
+							[(ngModel)]="user.name"
+							id="userName"
+							type="text" 
+							class="form-control" 
+							placeholder="请输入用户名"
+							validRequired="用户名"
+						>
+						<div 
+							*ngIf="nameControl.touched && nameControl?.errors?.validRequired" 
+							class="text-danger"
+						>{{nameControl?.errors?.validRequired}}</div>
+					</div>
+				</div>
+				<div 
+					class="form-group row" 
+					[ngClass]="{
+						'has-error': (!passwordControl.valid && passwordControl.touched), 
+						'has-success': (passwordControl.valid && passwordControl.touched)
+					}"
+				>
+					<label for="userPassword" class="col-sm-2 control-label">密码：</label>
+
+					<div class="col-sm-10">
+						<input 
+							#passwordControl="ngModel"
+							name="passwordControl"
+							[(ngModel)]="user.password" 
+							id="userPassword" 
+							type="password" 
+							class="form-control" 
+							placeholder="请输入密码"
+							validRequired="密码"
+						/>
+						<div 
+							*ngIf="passwordControl.touched && passwordControl?.errors?.validRequired" 
+							class="text-danger"
+						>{{passwordControl?.errors?.validRequired}}</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button
+							[disabled]="!loginForm.valid"
+							type="submit" 
+							class="btn btn-success"
+						>登录</button>
+						<button 
+							type="button" 
+							class="btn btn-danger" 
+							(click)="handleForget()"
+						>忘记密码？</button>
+						<a [routerLink]="['/register']">新用户? 注册!</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

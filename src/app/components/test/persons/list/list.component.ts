@@ -10,10 +10,10 @@ import { Component , Input , Output , EventEmitter , ChangeDetectionStrategy } f
 export class PersonsListComponent {
 	@Input() persons;
 	@Input() filter;
-    @Output() addGuest = new EventEmitter();
-    @Output() removeGuest = new EventEmitter();
-    @Output() removePerson = new EventEmitter();
-    @Output() toggleAttending = new EventEmitter();
+	@Output() addGuest = new EventEmitter();
+	@Output() removeGuest = new EventEmitter();
+	@Output() removePerson = new EventEmitter();
+	@Output() toggleAttending = new EventEmitter();
 	constructor() {
 	}
 }
