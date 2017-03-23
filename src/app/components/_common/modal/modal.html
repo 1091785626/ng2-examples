@@ -1,0 +1,46 @@
+<div #modalContainer>
+	<div 
+		*ngFor="let modal of modals" 
+		[@inOut]="animate" 
+		(@inOut.done)="onAnimationEnd($event)" 
+	>
+		<div class="modal" style="display: block;background:rgba(0,0,0,.5)">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button 
+							type="button" 
+							class="close"
+							*ngIf="modal.config.showCloseButton"
+							(click)="removeItem(modal)"
+						>×</button>
+						<h4 class="modal-title" id="myModalLabel">
+							{{modal.title}}
+						</h4>
+					</div>
+					<div class="modal-body">
+						{{modal.message}}
+					</div>
+					<div class="modal-footer">
+						<button 
+							type="button" 
+							class="btn btn-default" 
+							(click)="removeItem(modal,'close')"
+						>关闭</button>
+						<button 
+							type="button" 
+							class="btn btn-primary"
+							(click)="handleClick(modal)"
+						>提交更改</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>
+
+
+<!-- <div [ngSwitch]="modal.config.enableHTML">
+	<span *ngSwitchCase="true" [innerHTML]="sanitizer.bypassSecurityTrustHtml(modal.message)"></span>
+	<span *ngSwitchDefault>{{modal.message}}</span>
+</div>  -->

@@ -6,7 +6,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AppComponent {
 	name = 'Angular 2+';
-	constructor( @Inject(ActivatedRoute) public route: ActivatedRoute) {
-		console.log(this.route);
+	constructor(
+		@Inject(ActivatedRoute) public route: ActivatedRoute
+	) {
 	}
 }
