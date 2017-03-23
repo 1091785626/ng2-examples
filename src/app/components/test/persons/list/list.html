@@ -4,7 +4,7 @@
 		[class.attending]="person.attending"
 	>
 		 {{person.name}} - Guests: {{person.guests}}
-		<button (click)="addGuest(person.id)">+</button>
+		<button (click)="addGuest.emit(person.id)">+</button>
 		<button *ngIf="person.guests" (click)="removeGuest.emit(person.id)">-</button>
 		Attending?
 		<!-- 1.双向绑定(但是不会改变store中的值) -->
