@@ -41,10 +41,7 @@ export class RequestEffects {
 			const  {localData} = opts;
 			// dispatch on action
 			this.store.dispatch(nextAction(apiName + '_ON', params, opts));
-			if ( localData ) {
-				return ;
-			}
-			return this.request.ajax(ajaxType, API_ROOT[apiName], param)
+			return this.request.ajax(ajaxType, API_ROOT[apiName], param, localData)
 				.map((res) => {
 					params = {
 						...params,

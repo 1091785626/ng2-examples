@@ -1,5 +1,3 @@
-// 4.0
-// import {transition, state, trigger, style, animate} from '@angular/animations';
 import {transition, state, trigger, style, animate} from '@angular/core';
 export const inOut = trigger('inOut', [
 	state('flyRight, flyLeft', style({opacity: 1, transform: 'translateX(0)'})),
