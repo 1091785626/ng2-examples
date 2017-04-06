@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // ui
-import { Ng2BootstrapModule } from 'ng2-bootstrap';
+import { Ng2BootstrapModule } from 'ngx-bootstrap';
 
 import { UIComponent } from './ui.component';
 import { UIContentComponent } from '../../../components/test/ui/content/content.component';
