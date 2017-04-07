@@ -17,6 +17,7 @@ export const Validators = [
 	IdValidatorDirective,
 	SmsValidatorDirective,
 	WechatValidatorDirective,
+	NumValidatorDirective,
 	ZipCodeValidatorDirective,
 	RequiredValidatorDirective,
 	EmailValidatorDirective,

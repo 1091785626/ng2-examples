@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
+import { Register } from '../../../../models/register/main';
 
 @Component({
 	selector: 'app-main-content',
@@ -7,7 +8,7 @@ import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/form
 	styleUrls: ['./content.scss'],
 })
 export class MainContentComponent {
-	register = {};
+	register: Register = new Register();
 	constructor() {
 	}
 	handleSubmit(value: Object, form: any): void {

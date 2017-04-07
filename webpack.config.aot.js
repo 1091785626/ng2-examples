@@ -88,11 +88,11 @@ let webpackConfig = {
 			}, 
 			{
 				test: /\.(scss|css)$/,
-				use: ['raw-loader','sass-loader'],
+				use: ['raw-loader','sass-loader']
 			},
 			{
 				test: /\.scss$/,
-				exclude: [/node_modules/, /src\/app/], 
+				exclude: [path.resolve(__dirname, '/node_modules/'), path.resolve(__dirname, 'src/app')],  
 				use: ExtractTextPlugin.extract({
 					fallbackLoader: 'style-loader',
 					use: ['css-loader','sass-loader']

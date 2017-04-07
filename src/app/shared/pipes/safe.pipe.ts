@@ -3,7 +3,7 @@ import { DomSanitizer, SafeHtml, SafeStyle, SafeScript, SafeUrl, SafeResourceUrl
 @Pipe({
 	name: 'safe'
 })
-export class SafePipe implements PipeTransform {
+class SafePipe implements PipeTransform {
 	constructor(protected dom: DomSanitizer) {}
 	public transform(value: string, type: string): SafeHtml | SafeStyle | SafeScript | SafeUrl | SafeResourceUrl {
 		switch (type) {
@@ -22,5 +22,7 @@ export class SafePipe implements PipeTransform {
 		}
 	}
 };
+// 暂时不需要的模块，很奇怪build的时候需要引入，否则报错
+// export default SafePipe;
 // 富文本的使用
 // <div [innerHTML]="html | safe:'html'"></div>

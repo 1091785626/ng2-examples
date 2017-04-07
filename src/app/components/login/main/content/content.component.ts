@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-
+import { User } from '../../../../models/login/main';
 @Component({
 	selector: 'app-main-content',
 	templateUrl: './content.html',
 	styleUrls: ['./content.scss'],
 })
 export class MainContentComponent {
-	user = {};
+	user: User = new User();
 	constructor() {
 	}
 
