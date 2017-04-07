@@ -1,4 +1,4 @@
-import {transition, state, trigger, style, animate} from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 export const inOut = trigger('inOut', [
 	state('flyRight, flyLeft', style({opacity: 1, transform: 'translateX(0)'})),
 	state('fade', style({opacity: 1})),
