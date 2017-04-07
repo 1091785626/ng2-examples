@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // main
-import { MainTextComponent } from '../../../components/test/main/text/text.component';
+import { MainTextComponent } from '@components/test/main/text/text.component';
 
 import { MainComponent } from './main.component';
 

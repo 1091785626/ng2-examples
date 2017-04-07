@@ -2,10 +2,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { Store } from '@ngrx/store';
 
-import * as types from '../../../constants/actions/test';
-import * as actions from '../../../actions/test';
-import { dataSelector , percentAttendingSelector } from '../../../selectors/test/persons';
-import bindActionCreators from '../../../utils/lib/bindActionCreators';
+import * as types from '@constants/actions/test';
+import * as actions from '@actions/test';
+import { dataSelector , percentAttendingSelector } from '@selectors/test/persons';
+import bindActionCreators from '@utils/lib/bindActionCreators';
 
 @Component({
 	selector: 'app-pages-test-persons',

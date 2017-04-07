@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 
 import { Toast } from './toast';
-import { inOut } from '../../../shared/animations/in-out.animations';
+import { inOut } from '@shared/animations/in-out.animations';
 import { ToastOptions } from './toast-options';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Subject } from 'rxjs/Subject';

@@ -11,10 +11,20 @@
 		"module": "es2015",
 		"moduleResolution": "node",
 		"sourceMap": true,
-		"baseUrl": "",
+		"baseUrl": ".",
 		"typeRoots": [
 			"node_modules/@types"
 		],
+		"paths": {
+			"@actions/*": ["src/app/actions/*"],
+			"@components/*": ["src/app/components/*"],
+			"@constants/*": ["src/app/constants/*"],
+			"@models/*": ["src/app/models/*"],
+			"@selectors/*": ["src/app/selectors/*"],
+			"@services/*": ["src/app/services/*"],
+			"@shared/*": ["src/app/shared/*"],
+			"@utils/*": ["src/app/utils/*"]
+		},
 		"lib": [
 			"es2015",
 			"dom"

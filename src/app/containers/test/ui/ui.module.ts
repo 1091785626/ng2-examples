@@ -4,11 +4,11 @@ import { CommonModule } from '@angular/common';
 import { Ng2BootstrapModule } from 'ngx-bootstrap';
 
 import { UIComponent } from './ui.component';
-import { UIContentComponent } from '../../../components/test/ui/content/content.component';
-import { UIToastComponent } from '../../../components/test/ui/toast/toast.component';
-import { UIModalComponent } from '../../../components/test/ui/modal/modal.component';
-import { ToastModule } from '../../../components/_common/toast/toast.module';
-import { ModalModule } from '../../../components/_common/modal/modal.module';
+import { UIContentComponent } from '@components/test/ui/content/content.component';
+import { UIToastComponent } from '@components/test/ui/toast/toast.component';
+import { UIModalComponent } from '@components/test/ui/modal/modal.component';
+import { ToastModule } from '@components/_common/toast/toast.module';
+import { ModalModule } from '@components/_common/modal/modal.module';
 
 @NgModule({
 	imports: [

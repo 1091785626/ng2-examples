@@ -1,6 +1,6 @@
 import { ActionReducer, Action } from '@ngrx/store';
 
-import * as types from '../../constants/actions/test';
+import * as types from '@constants/actions/test';
 export interface State {
 	id: any;
 	name: any;

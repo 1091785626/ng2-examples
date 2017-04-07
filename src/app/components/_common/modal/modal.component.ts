@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 
 import { Modal } from './modal';
-import { inOut } from '../../../shared/animations/in-out.animations';
+import { inOut } from '@shared/animations/in-out.animations';
 import { ModalOptions } from './modal-options';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Subject } from 'rxjs/Subject';

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from '../../../../models/login/main';
+import { User } from '@models/login/main';
 @Component({
 	selector: 'app-main-content',
 	templateUrl: './content.html',

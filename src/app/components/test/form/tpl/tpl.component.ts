@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from '../../../../models/test/form';
+import { User } from '@models/test/form';
 @Component({
 	selector: 'app-form-tpl',
 	templateUrl: './tpl.html',

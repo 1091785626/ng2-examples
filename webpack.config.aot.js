@@ -1,4 +1,3 @@
-console.log(`NODE_ENV : ${process.env.NODE_ENV}`);
 const path = require('path');
 const node_modules = path.resolve(__dirname, 'node_modules');
 
@@ -11,23 +10,14 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const ngtools = require('@ngtools/webpack');
 
+const commonConfig = require('./webpack.config.common').commonConfig;
+
 let webpackConfig = {
-	entry: {
-		vendor: ['./src/polyfills.ts', './src/vendor.ts'],
-		main: './src/main.ts'
-	},
-
-	output: {
-		path: path.resolve(__dirname, './dist'),
-		filename: '[name].[hash:8].js',
-		/**
-		 * html引用路径
-		 */
-		publicPath: '/'
-	},
-
 	plugins: [
-		new ExtractTextPlugin({filename: 'initial.[hash:8].css', allChunks: true}),
+		new ExtractTextPlugin({
+			filename: 'initial.[hash:8].css',
+			allChunks: true
+		}),
 		/**
 		 * 输出html
 		 */
@@ -53,9 +43,11 @@ let webpackConfig = {
 		/**
 		 * 压缩同时转移静态文件
 		 */
-		new CopyWebpackPlugin([
-				{ from: 'src/static', to: '', toType: 'file' },
-		]),
+		new CopyWebpackPlugin([{
+			from: 'src/static',
+			to: '',
+			toType: 'file'
+		}, ]),
 		new ngtools.AotPlugin({
 			tsConfigPath: './tsconfig.json',
 		}),
@@ -68,76 +60,16 @@ let webpackConfig = {
 		 * webPack 提供了内建插件，直接配置以下代码即可压缩代码
 		 */
 		new webpack.optimize.UglifyJsPlugin({
-				output: {
-					comments: false,  // remove all comments（没有注释）
-				},
-				compress: {
-					warnings: false
-				}
-		})
-	],
-
-	module: {
-		exprContextCritical: false,
-		rules: [
-			{
-				test: /\.ts$/,
-				use: [
-					'@ngtools/webpack'
-				]
-			}, 
-			{
-				test: /\.(scss|css)$/,
-				use: ['raw-loader','sass-loader']
+			output: {
+				comments: false, // remove all comments（没有注释）
 			},
-			{
-				test: /\.scss$/,
-				exclude: [path.resolve(__dirname, '/node_modules/'), path.resolve(__dirname, 'src/app')],  
-				use: ExtractTextPlugin.extract({
-					fallbackLoader: 'style-loader',
-					use: ['css-loader','sass-loader']
-				})
-			},
-			{
-				test: /\.html$/,
-				use: 'raw-loader'
-			},
-			{
-				test: /\.(jpe?g|png|gif|svg)$/i,
-				use: 'file-loader'
+			compress: {
+				warnings: false
 			}
-		]
-	}
+		})
+	]
 };
-
-let defaultConfig = {
-	//devtool: 'inline-source-map',
-	output: {
-		filename: '[name].[hash:8].bundle.js',
-		chunkFilename: '[id].[hash:8].chunk.js'
-	},
-	resolve: {
-		extensions: ['.ts', '.js'],
-		modules: [node_modules]
-	},
-	devServer: {
-		contentBase: './',
-		port: 9090,
-		inline: true,
-		stats: 'errors-only',
-		historyApiFallback: true,
-		watchOptions: { aggregateTimeout: 100, poll: 500 }
-	},
-
-	node: {
-		global: true,
-		crypto: 'empty',
-		__dirname: true,
-		__filename: true,
-		Buffer: false,
-		clearImmediate: false,
-		setImmediate: false
-	}
-};
-
-module.exports = webpackMerge(defaultConfig, webpackConfig);
+module.exports = webpackMerge(
+	commonConfig,
+	webpackConfig
+);

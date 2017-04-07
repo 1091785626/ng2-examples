@@ -1,4 +1,3 @@
-console.log(`NODE_ENV : ${process.env.NODE_ENV}`);
 const path = require('path');
 const node_modules = path.resolve(__dirname, 'node_modules');
 
@@ -9,24 +8,14 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+const commonConfig = require('./webpack.config.common').commonConfig;
+
 let webpackConfig = {
-	entry: {
-		vendor: ['./src/polyfills.ts', './src/vendor.ts'],
-		main: './src/main.ts'
-	},
-	output: {
-		path: path.resolve(__dirname, './dist'),
-		filename: '[name].[hash:8].js',
-		/**
-		 * html引用路径
-		 */
-		publicPath: '/'
-	},
 	plugins: [
-      	new ExtractTextPlugin({
-      		filename: 'initial.[hash:8].css', 
-      		allChunks: true
-      	}),
+		new ExtractTextPlugin({
+			filename: 'initial.[hash:8].css',
+			allChunks: true
+		}),
 		/**
 		 * 输出html
 		 */
@@ -53,73 +42,10 @@ let webpackConfig = {
 		 * 报错继续运行2.0弃用NoErrorsPlugin，改用NoEmitOnErrorsPlugin
 		 */
 		new webpack.NoEmitOnErrorsPlugin(),
-	],
-
-	module: {
-		exprContextCritical: false,
-		rules: [
-			{
-				test: /\.ts$/,
-				use: [
-					'awesome-typescript-loader',
-					'angular2-router-loader',
-					'angular2-template-loader'
-				]
-			}, 
-			{
-				test: /\.(scss|css)$/,
-				use: ['raw-loader','sass-loader'],
-			},
-			{
-				test: /\.scss$/,
-				exclude: [path.resolve(__dirname, '/node_modules/'), path.resolve(__dirname, 'src/app')], 
-				use: ExtractTextPlugin.extract({
-					fallbackLoader: 'style-loader',
-					use: ['css-loader','sass-loader']
-				})
-			},
-			{
-				test: /\.html$/,
-				use: 'raw-loader'
-			},
-			{
-				test: /\.(jpe?g|png|gif|svg)$/i,
-				use: 'file-loader'
-			}
-		]
-	}
-
+	]
 };
 
-let defaultConfig = {
-	devtool: 'source-map',
-	output: {
-		filename: '[name].[hash:8].bundle.js',
-		sourceMapFilename: '[name].[hash:8].bundle.map',
-		chunkFilename: '[id].[hash:8].chunk.js'
-	},
-	resolve: {
-		extensions: ['.ts', '.js']
-	},
-	devServer: {
-		contentBase: './',
-		port: 8080,
-		inline: true,
-		stats: 'errors-only',
-		historyApiFallback: true,
-		watchOptions: {
-			aggregateTimeout: 100,
-			poll: 500
-		}
-	},
-	node: {
-		global: true,
-		crypto: 'empty',
-		__dirname: true,
-		__filename: true,
-		Buffer: false,
-		clearImmediate: false,
-		setImmediate: false
-	}
-};
-module.exports = webpackMerge(defaultConfig, webpackConfig);
+module.exports = webpackMerge(
+	commonConfig,
+	webpackConfig
+);

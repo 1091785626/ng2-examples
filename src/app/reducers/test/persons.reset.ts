@@ -1,6 +1,6 @@
 // Reset Meta-Reducer
 // v2 取消了 中间件，使用此方式代替
-import * as types from '../../constants/actions/test';
+import * as types from '@constants/actions/test';
 
 const INIT = '__NOT_A_REAL_ACTION__';
 

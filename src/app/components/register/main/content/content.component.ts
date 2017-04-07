@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
-import { Register } from '../../../../models/register/main';
+import { Register } from '@models/register/main';
 
 @Component({
 	selector: 'app-main-content',
